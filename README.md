@@ -12,7 +12,7 @@ npm i razorpay-subscription-checkout
 
 ## Usage
 
-```javascript
+```tsx
 import RazorpayCheckout from "razorpay-subscription-checkout";
 import type {RazorpayCheckoutOptions} from "razorpay-subscription-checkout"
 
@@ -34,8 +34,8 @@ const options: RazorpayCheckoutOptions = {
 	}
 }
 
-// Set up the Razorpay checkout instance
-const razopay = RazorpayCheckout(options)
+// Set up the checkout instance
+const razopay = new RazorpayCheckout(options)
 
 // Open the checkout modal
 razorpay.open()
