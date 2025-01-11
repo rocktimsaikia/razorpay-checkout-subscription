@@ -2,7 +2,7 @@
 
 Razorpay checkout integration for subscriptions only.
 
-[![npm](https://img.shields.io/npm/v/npm-package-starter?color=bright)](https://npmjs.com/package/npm-package-starter)
+[![npm](https://img.shields.io/npm/v/razorpay-subscription-checkout?color=bright)](https://npmjs.com/package/razorpay-subscription-checkout)
 
 ## Installtion
 
@@ -18,7 +18,7 @@ import type {RazorpayCheckoutOptions} from "razorpay-subscription-checkout"
 
 // Define options for the checkout
 const options: RazorpayCheckoutOptions = {
-	key: "RAZOPAY_API_KEY",
+	key: "RAZORPAY_API_KEY",
 	subscription_id: "sub_00000000000001",
 	name: "Your Company Name",
 	description: "Monthly Test Plan",

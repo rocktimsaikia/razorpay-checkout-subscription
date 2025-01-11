@@ -1,9 +1,9 @@
 {
-	"name": "npm-package-starter",
+	"name": "razorpay-subscription-checkout",
 	"version": "0.0.0",
-	"description": "Get country information via currency code",
-	"keywords": ["npm-package-starter"],
-	"repository": "rocktimsaikia/npm-package-starter",
+	"description": "Razorpay checkout integration for subscriptions only.",
+	"keywords": ["razorpay-subscription-checkout"],
+	"repository": "rocktimsaikia/razorpay-subscription-checkout",
 	"funding": "https://github.com/sponsors/rocktimsaikia",
 	"license": "MIT",
 	"author": {
