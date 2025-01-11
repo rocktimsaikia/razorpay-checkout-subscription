@@ -1,44 +1,50 @@
-# npm-package-starter
+# razorpay-checkout-subscription
 
-A simple npm package template
+Razorpay checkout integration for subscriptions only.
 
-[![CI](https://github.com/rocktimsaikia/npm-package-starter/actions/workflows/main.yml/badge.svg)](https://github.com/rocktimsaikia/npm-package-starter/actions/workflows/main.yml) [![npm](https://img.shields.io/npm/v/npm-package-starter?color=bright)](https://npmjs.com/package/npm-package-starter)
+[![npm](https://img.shields.io/npm/v/npm-package-starter?color=bright)](https://npmjs.com/package/npm-package-starter)
 
 ## Installtion
 
 ```sh
-npm i npm-package-starter
+npm i razorpay-checkout-subscription
 ```
 
 ## Usage
 
 ```javascript
-import { add } from "npm-package-starter";
+import { RazorpayCheckoutSubscription } from "razorpay-checkout-subscription";
 
-const sum = add(1, 2);
+// Set up the Razorpay checkout instance
+const razorpay = new RazorpayCheckoutSubscription({
+	key: "RAZOPAY_API_KEY",
+	subscription_id: "sub_00000000000001",
+	name: "Acme Corp.",
+	description: "Monthly Test Plan",
+	image: "/your_logo.jpg",
+	callback_url: "https://eneqd3r9zrjok.x.pipedream.net/",
+	prefill: {
+		name: "Gaurav Kumar",
+		email: "gaurav.kumar@example.com",
+		contact: "+919876543210"
+	},
+	notes: {
+		note_key_1: "Tea. Earl Grey. Hot",
+		note_key_2: "Make it so."
+	},
+	theme: {
+		color: "#F37254"
+	}
+})
 
-console.log(sum);
-// => 3
+// Open the checkout modal
+razorpay.open()
 ```
 
 ## API
+For the complete API reference check the [Razorpay's offical documentation.](https://razorpay.com/docs/payments/payment-gateway/web-integration/standard/integration-steps#123-checkout-options)
 
-### add(parameters)
-
-Add two numbers and returns the total.
-
-#### Parameters
-
-##### 1.
-
-> Type: `number` \
-> The first number.
-
-##### 2.
-
-> Type: `number` \
-> The second number.
 
 ## LICENSE
 
-[MIT](./LICENSE) License &copy; [Rocktim Saikia](https://rocktimsaikia.dev) 2024
+[MIT](./LICENSE) License &copy; [Rocktim Saikia](https://rocktimsaikia.dev) 2025

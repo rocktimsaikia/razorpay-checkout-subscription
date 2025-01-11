@@ -1,10 +1,4 @@
-type Methods =
-	| "card"
-	| "netbanking"
-	| "wallet"
-	| "emi"
-	| "upi"
-	| "interface Options";
+type Methods = "card" | "netbanking" | "wallet" | "emi" | "upi" | "interface Options";
 
 interface Prefill {
 	name: string;
@@ -19,13 +13,49 @@ interface Theme {
 	backdrop_color: string;
 }
 
-interface Options {
+interface Modal {
+	backdropclose: boolean;
+	escape: boolean;
+	handleback: boolean;
+	confirm_close: boolean;
+	ondismiss: boolean;
+	animation: boolean;
+}
+
+interface Readonly {
+	contact: boolean;
+	email: boolean;
+	name: boolean;
+}
+
+interface Hidden {
+	contact: boolean;
+	email: boolean;
+}
+
+interface Retry {
+	enabled: boolean;
+	max_count: number; // Not supported on web integration.
+}
+
+interface Config {
+	display: {
+		language: "en" | "ben" | "hi" | "mar" | "guj" | "tam" | "tel";
+	};
+}
+
+interface HandlerResponse {
+	razorpay_payment_id: string;
+	razorpay_subscription_id: string;
+	razorpay_signature: string;
+}
+
+interface BaseOptions {
 	key: string;
 	name: string;
 	subscription_id: string;
 	subscription_card_change?: boolean;
 	recurring?: boolean;
-	callback_url?: string;
 	redirect?: boolean;
 	customer_id?: string;
 	remember_customer?: boolean;
@@ -35,15 +65,32 @@ interface Options {
 	notes?: Record<string, string>;
 	prefill: Partial<Prefill>;
 	theme: Partial<Theme>;
+	modal?: Partial<Modal>;
+	readonly?: Partial<Readonly>;
+	hidden?: Partial<Hidden>;
+	send_sms_hash?: boolean;
+	allow_rotation?: boolean;
+	retry?: Retry;
+	config?: Config;
+	callback_url?: string;
+	handler?: (response: HandlerResponse) => void;
 }
+
+// Either handler function or callback URL can be passed, not both together.
+type RazorpayCheckoutOptions = BaseOptions &
+	(
+		| { callback_url: string; handler?: never }
+		| { handler: (response: HandlerResponse) => void; callback_url?: never }
+		| { callback_url?: never; handler?: never }
+	);
 
 const CHECKOUT_JS = "https://checkout.razorpay.com/v1/checkout.js";
 
-export class RazorpaySubscriptioCheckout {
-	private options: Options;
+export class RazorpayCheckoutSubscription {
+	private options: RazorpayCheckoutOptions;
 	private razorpay: any;
 
-	constructor(options: Options) {
+	constructor(options: RazorpayCheckoutOptions) {
 		this.options = options;
 		this.loadCheckoutScript(this.initializeRazorpay);
 	}
