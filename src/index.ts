@@ -86,7 +86,7 @@ type RazorpayCheckoutOptions = BaseOptions &
 
 const CHECKOUT_JS = "https://checkout.razorpay.com/v1/checkout.js";
 
-export class RazorpayCheckoutSubscription {
+export default class RazorpayCheckout {
 	private options: RazorpayCheckoutOptions;
 	private razorpay: any;
 

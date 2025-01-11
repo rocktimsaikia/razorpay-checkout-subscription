@@ -1,4 +1,4 @@
-# razorpay-checkout-subscription
+# razorpay-subscription-checkout
 
 Razorpay checkout integration for subscriptions only.
 
@@ -7,35 +7,35 @@ Razorpay checkout integration for subscriptions only.
 ## Installtion
 
 ```sh
-npm i razorpay-checkout-subscription
+npm i razorpay-subscription-checkout
 ```
 
 ## Usage
 
 ```javascript
-import { RazorpayCheckoutSubscription } from "razorpay-checkout-subscription";
+import RazorpayCheckout from "razorpay-subscription-checkout";
+import type {RazorpayCheckoutOptions} from "razorpay-subscription-checkout"
 
-// Set up the Razorpay checkout instance
-const razorpay = new RazorpayCheckoutSubscription({
+// Define the required options for the checkout
+const options: RazorpayCheckoutOptions = {
 	key: "RAZOPAY_API_KEY",
 	subscription_id: "sub_00000000000001",
 	name: "Acme Corp.",
 	description: "Monthly Test Plan",
-	image: "/your_logo.jpg",
-	callback_url: "https://eneqd3r9zrjok.x.pipedream.net/",
+	image: "/path/to/company-logo.jpg",
+	callback_url: "https://yourwebsite.com/custom_callback_url/"
 	prefill: {
 		name: "Gaurav Kumar",
 		email: "gaurav.kumar@example.com",
 		contact: "+919876543210"
 	},
-	notes: {
-		note_key_1: "Tea. Earl Grey. Hot",
-		note_key_2: "Make it so."
-	},
 	theme: {
 		color: "#F37254"
 	}
-})
+}
+
+// Set up the Razorpay checkout instance
+const razopay = RazorpayCheckout(options)
 
 // Open the checkout modal
 razorpay.open()
