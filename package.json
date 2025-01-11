@@ -1,8 +1,10 @@
 {
 	"name": "razorpay-subscription-checkout",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"description": "Razorpay checkout integration for subscriptions only.",
-	"keywords": ["razorpay-subscription-checkout"],
+	"keywords": [
+		"razorpay-subscription-checkout"
+	],
 	"repository": "rocktimsaikia/razorpay-subscription-checkout",
 	"funding": "https://github.com/sponsors/rocktimsaikia",
 	"license": "MIT",
@@ -14,7 +16,9 @@
 	"type": "module",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "tsup",
 		"release": "pnpm build && np",
@@ -32,8 +36,13 @@
 		"node": ">=18"
 	},
 	"tsup": {
-		"entry": ["src/index.ts"],
-		"format": ["cjs", "esm"],
+		"entry": [
+			"src/index.ts"
+		],
+		"format": [
+			"cjs",
+			"esm"
+		],
 		"minify": true,
 		"clean": true,
 		"dts": true
