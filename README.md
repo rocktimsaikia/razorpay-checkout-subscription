@@ -16,14 +16,14 @@ npm i razorpay-subscription-checkout
 import RazorpayCheckout from "razorpay-subscription-checkout";
 import type {RazorpayCheckoutOptions} from "razorpay-subscription-checkout"
 
-// Define the required options for the checkout
+// Define options for the checkout
 const options: RazorpayCheckoutOptions = {
 	key: "RAZOPAY_API_KEY",
 	subscription_id: "sub_00000000000001",
-	name: "Acme Corp.",
+	name: "Your Company Name",
 	description: "Monthly Test Plan",
 	image: "/path/to/company-logo.jpg",
-	callback_url: "https://yourwebsite.com/custom_callback_url/"
+	callback_url: "https://yourwebsite.com/custom_callback_url/",
 	prefill: {
 		name: "Gaurav Kumar",
 		email: "gaurav.kumar@example.com",
