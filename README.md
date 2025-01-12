@@ -1,3 +1,6 @@
+> [!CAUTION]
+> Package no longer maintained. Use [`react-razorpay-checkout`](https://github.com/rocktimsaikia/react-razorpay-checkout) instead.
+
 # razorpay-subscription-checkout
 
 Razorpay checkout integration for subscriptions only.
